@@ -26,15 +26,38 @@ The corresponding position model is:
 G_\theta(s) = \frac{0.1924}{s(s + 2.1119)}
 \]
 
-## Selected results
+## Quantitative results
 
-- Estimated static gain: `k0 = 0.0911`.
-- Estimated dynamic parameter: `a = 2.1119 s⁻¹`.
-- Measured dead-zone thresholds: approximately `-26.17` and `+33.27` PWM units.
-- Selected velocity PI controller: `kω = 30`, `ki = 60`.
-- Experimental velocity-control settling time: `0.2314 s`.
-- Experimental velocity-control overshoot: `4.42%`.
-- Position-control comparison: PD (`k1 = 70`, `k2 = 35`) and PID controllers with `k3 = 20` and `k3 = 40`.
+### Model identification
+
+| Quantity | Result | Interpretation |
+| --- | --- | --- |
+| Time-domain static gain, `k0` | `0.0911 rad s⁻¹/PWM` | Selected for the linear model around the operating point. |
+| Time-domain dynamic parameter, `a` | `2.1119 s⁻¹` | Corresponds to a first-order time constant of about `0.474 s`. |
+| Frequency-response estimate | `k0 ≈ 0.0974`, `a ≈ 2.11 s⁻¹` | Independent Bode validation, consistent with the step-response model. |
+| Dead-zone thresholds | `u− ≈ −26.17`, `u+ ≈ +33.27 PWM` | Nonlinearity observed before meaningful motor motion. |
+| Mean dead-zone magnitude, `c` | `≈ 29.72 PWM` | Explains why the selected identification step avoids the zero-speed region. |
+
+### Experimental velocity-control performance
+
+Values are mean ± sample standard deviation across three laboratory runs. The criterion was `Ts20% < 0.3 s` with a final value close to one.
+
+| Controller | Gains | `Ts20%` [s] | Overshoot [%] | Final value | `u_max` [PWM] | Assessment |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| P | `kω = 30` | `0.1507 ± 0.0110` | `4.19 ± 0.09` | `0.7618 ± 0.0107` | `161.67 ± 10.08` | Fast, but non-zero steady-state error. |
+| I | `ki = 5.7956` | `2.4717 ± 0.0146` | `5.93 ± 2.13` | `0.9998 ± 0.0012` | `91.36 ± 2.83` | Zero steady-state error, but far too slow. |
+| PI | `kω = 30`, `ki = 60` | `0.2231 ± 0.0148` | `4.21 ± 0.38` | `1.0009 ± 0.0003` | `158.80 ± 12.58` | Selected: meets the settling-time requirement and tracks the reference. |
+| PI (reduced gains) | `kω = 20`, `ki = 40` | `0.3749 ± 0.0128` | `4.46 ± 0.70` | `1.0006 ± 0.0011` | `124.40 ± 7.16` | Lower effort, but fails the settling-time requirement. |
+
+### Experimental position-tracking performance
+
+Values are mean ± sample standard deviation across three ramp-tracking runs. Error metrics use the ramp-following phase only.
+
+| Controller | Gains (`k1`, `k2`, `k3`) | `e_RMS` [rad] | `|e_f|` [rad] | `u_mean` [PWM] | `|u|_max` [PWM] | Assessment |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| PD | `(70, 35, 0)` | `0.6069 ± 0.0315` | `0.6096 ± 0.0297` | `104.61 ± 2.21` | `210.42 ± 10.25` | Stable and fast, but retains ramp-tracking error. |
+| PID | `(70, 35, 20)` | `0.2634 ± 0.0148` | `0.0201 ± 0.0065` | `103.79 ± 2.52` | `205.52 ± 7.23` | Strong reduction of the final error. |
+| PID | `(70, 35, 40)` | `0.1920 ± 0.0090` | `0.0056 ± 0.0013` | `103.62 ± 2.29` | `201.10 ± 2.76` | Best overall ramp tracking without increased control effort. |
 
 ## Repository structure
 
