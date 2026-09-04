@@ -20,11 +20,12 @@ matlab/
 ├── Lab1_resultados_26_27.mat
 ├── Lab1_resultados_28.mat
 ├── Data/
+│   ├── README.md
 │   └── Lab2_*.mat
 └── Image/
 ```
 
-Raw experimental datasets are not part of the public repository. They are required only to reproduce the original numerical results.
+Raw experimental datasets are not part of the public repository. `Data/README.md` describes their expected role. They are required only to reproduce the original numerical results.
 
 ## External course dependencies
 
