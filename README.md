@@ -59,12 +59,13 @@ docs/
 
 The raw MATLAB datasets are retained privately in this initial public release because they originate from an academic group-laboratory environment. The repository documents the full analysis workflow and the measured results. Sections that start a new physical experiment require the course-provided acquisition functions and the Arduino-based setup; these functions are not redistributed here.
 
-## Running the analysis
+## Running the analysis with access to the dataset
 
-1. Open MATLAB and set the current folder to `matlab/`.
-2. Run `Lab1_analise.m` for identification and frequency-response analysis.
-3. Run `Lab2_analise.m` for controller design and velocity-control analysis.
-4. Run `Lab3_analise.m` for the dedicated position-control validation and metrics.
+1. Obtain or prepare the experimental files in the layout shown under `matlab/` and `matlab/Data/`.
+2. Open MATLAB and set the current folder to `matlab/`.
+3. Run `Lab1_analise.m` for identification and frequency-response analysis.
+4. Run `Lab2_analise.m` for controller design and velocity-control analysis.
+5. Run `Lab3_analise.m` for the dedicated position-control validation and metrics.
 
 The legacy MATLAB comments remain in Portuguese because they are part of the original academic working scripts. This README and all new documentation are in English.
 
