@@ -6,6 +6,9 @@
 *.slxc
 *.fig
 
+# Original laboratory datasets and derived MATLAB workspaces
+*.mat
+
 # MATLAB working folders
 slprj/
 codegen/
