@@ -51,6 +51,18 @@ docs/
 └── attribution.md          # authorship and dependency notes
 ```
 
+## Source code
+
+The MATLAB source is available directly in the [`matlab/`](matlab/) folder:
+
+- [`Lab1_analise.m`](matlab/Lab1_analise.m) — dead-zone identification, step-response identification and frequency-response analysis.
+- [`Lab2_analise.m`](matlab/Lab2_analise.m) — design and analysis of P, I, PI, PD and PID controllers, including experimental velocity-control processing.
+- [`Lab3_analise.m`](matlab/Lab3_analise.m) — dedicated position-control validation, experimental comparison and tracking-error metrics.
+- [`Bode.m`](matlab/Bode.m) — asymptotic Bode plot for the identified model.
+- [`Bloco4b.m`](matlab/Bloco4b.m) — frequency-response acquisition and post-processing workflow.
+
+See [`matlab/README.md`](matlab/README.md) for the execution order, dependencies and expected data layout.
+
 ## Requirements
 
 - MATLAB (tested in the 2025/2026 course environment);
