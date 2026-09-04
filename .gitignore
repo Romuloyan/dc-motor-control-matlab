@@ -1,0 +1,20 @@
+# MATLAB temporary and automatic files
+*.asv
+*.m~
+*.mex*
+*.mlappinstall
+*.slxc
+*.fig
+
+# MATLAB working folders
+slprj/
+codegen/
+resources/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Local backups and compressed archives
+Backup*/
+*.zip
