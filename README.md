@@ -16,15 +16,15 @@ The project follows the full control-design workflow:
 
 The identified velocity model is:
 
-\[
+$$
 G_\omega(s) = \frac{0.1924}{s + 2.1119}
-\]
+$$
 
 The corresponding position model is:
 
-\[
-G_\theta(s) = \frac{0.1924}{s(s + 2.1119)}
-\]
+$$
+G_\theta(s) = \frac{0.1924}{s\left(s + 2.1119\right)}
+$$
 
 ## Quantitative results
 
