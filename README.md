@@ -2,7 +2,7 @@
 
 Academic project on the experimental modelling, identification and closed-loop control of a DC motor. The work combines theoretical design, MATLAB simulation and laboratory validation using an Arduino-based experimental platform.
 
-> This is a curated portfolio version of an academic team project completed in the Control course of the BSc in Electrical and Computer Engineering at Instituto Superior Técnico. It contains the analysis and processing scripts developed by Rómulo Yan. The original laboratory acquisition helpers supplied with the course are deliberately not included.
+> This is a curated portfolio version of an academic project completed in the Control course of the BSc in Electrical and Computer Engineering at Instituto Superior Técnico. It contains the analysis and processing scripts developed by Rómulo Yan. The original laboratory acquisition helpers supplied with the course are deliberately not included.
 
 ## Project scope
 
